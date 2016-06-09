@@ -1,0 +1,21 @@
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+	"id" : "56",
+	"name": "56 update",
+	"description" : "pernacchia",
+	"content": "could still be base64"
+=======
+	"id" : "1",
+=======
+	"id" : "101",
+>>>>>>> 902f7bcc8287e0353d6729a0e9d22e94ac2c4dc9
+	"name": "updated item",
+	"description" : "an updated item",
+	"content": "could still be base64",
+	"values": {
+		"test": "update",
+		"todo": "updated"
+	}
+>>>>>>> a446f5cd339c9107edfaf9d3e3f63331ca340a44
+}

@@ -1,0 +1,23 @@
+<div class="panel panel-default" ng-model="ctl.current" ng-init="item = ctl.current" >
+    <div class="panel panel-heading">
+        <a class="h4" data-toggle="collapse" href="#chat">Item: {{ item.name }}</a>
+    </div>
+    <div id="values" class="panel panel-body">
+        <div ng-repeat="(key,value) in item.values">
+          <span class="label label-success">{{ key }}:</span><span>{{ value }}</span>
+        </div>
+    </div>
+    <div class="panel panel-footer">
+        <form>
+            <div class="input-group">
+                <input ng-model="item.description" type="text" class="form-control" />
+                <input ng-model="item.content" type="text" class="form-control" />
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-block btn-default" ng-click="ctl.deleteItem(ctl.current);">
+                  <i class="fa fa-trash fa-fw fa-lg"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

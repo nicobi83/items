@@ -1,0 +1,10 @@
+{
+	"id" : "20",
+	"name": "ITEM_20",
+	"description" : "sono_item_n_20",
+	"content": "prova",
+	"values": {
+		"test": "campo1",
+		"todo": "campo_124"
+	}
+}

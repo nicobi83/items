@@ -1,0 +1,26 @@
+{
+    "nome" : "Luca",
+    "cognome" : "Rossi",
+    "indirizzoResidenza" : {
+        "id" : "999",
+        "via": "item with map",
+        "cap" : "a new item with a map",
+        "citta": "could be base64"
+
+    },
+    "indirizzoDomicilio" : {
+        "id" : "121",
+        "via": "item with map",
+        "cap" : "a new item with a map",
+        "citta": "could be base64"
+
+    },
+    "sesso" : "m",
+    "cittadinanza" : ["italia"],
+    "account" : [{
+      "id" : "1",
+      "valore" : "http://twitter.com/qualsiasicosa",
+      "tipo" : "twitter"
+    }],
+    "email" : "pincopallo@yahoo.it"
+}

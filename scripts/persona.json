@@ -1,0 +1,26 @@
+{
+    "nome" : "Mario",
+    "cognome" : "Rossi",
+    "indirizzoResidenza" : {
+        "id" : "101",
+        "via": "item with map",
+        "cap" : "a new item with a map",
+        "citta": "could be base64"
+    },
+    "indirizzoDomicilio" : {
+        "id" : "101",
+        "via": "item with map",
+        "cap" : "a new item with a map",
+        "citta": "could be base64"
+    },
+    "cittadinanza" : ["italia", "america"],
+    "sesso" : "m",
+    "email" : "pinco@pallo.com",
+    "numTel" : "0432-569581",
+    "numCel" : "348-9854655",
+    "account" : [{
+        "id" : "1",
+        "valore" : "http://facebook.com/qualsiasicosa",
+        "tipo" : "facebook"
+    }]
+}

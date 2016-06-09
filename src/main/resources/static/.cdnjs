@@ -1,0 +1,133 @@
+{
+  "cdnjs": {
+    "root": "https://cdnjs.cloudflare.com/ajax/libs",
+    "relative-location": "libs",
+    "dependencies": {
+      "font-awesome": {
+        "version": "4.6.1",
+        "files": [
+          "css/font-awesome.css",
+          "css/font-awesome.css.map",
+          "css/font-awesome.min.css",
+          "fonts/FontAwesome.otf",
+          "fonts/fontawesome-webfont.eot",
+          "fonts/fontawesome-webfont.svg",
+          "fonts/fontawesome-webfont.ttf",
+          "fonts/fontawesome-webfont.woff",
+          "fonts/fontawesome-webfont.woff2"
+        ]
+      },
+      "lodash.js": {
+        "version": "4.11.2",
+        "files": [
+          "lodash.js",
+          "lodash.min.js",
+          "lodash.min.js.map"
+        ]
+      },
+      "moment.js": {
+        "version": "2.13.0",
+        "files": [
+          "locale/it.js",
+          "moment-with-locales.js",
+          "moment-with-locales.min.js",
+          "moment.js",
+          "moment.min.js"
+        ]
+      },
+      "angular-ui-router": {
+        "version": "0.2.18",
+        "files": [
+          "angular-ui-router.js",
+          "angular-ui-router.min.js"
+        ]
+      },
+      "angular.js": {
+        "version": "1.4.10",
+        "files": [
+          "angular-animate.js",
+          "angular-animate.min.js",
+          "angular-animate.min.js.map",
+          "angular-aria.js",
+          "angular-aria.min.js",
+          "angular-aria.min.js.map",
+          "angular-cookies.js",
+          "angular-cookies.min.js",
+          "angular-cookies.min.js.map",
+          "angular-csp.css",
+          "angular-loader.js",
+          "angular-loader.min.js",
+          "angular-loader.min.js.map",
+          "angular-message-format.js",
+          "angular-message-format.min.js",
+          "angular-message-format.min.js.map",
+          "angular-messages.js",
+          "angular-messages.min.js",
+          "angular-messages.min.js.map",
+          "angular-mocks.js",
+          "angular-resource.js",
+          "angular-resource.min.js",
+          "angular-resource.min.js.map",
+          "angular-route.js",
+          "angular-route.min.js",
+          "angular-route.min.js.map",
+          "angular-sanitize.js",
+          "angular-sanitize.min.js",
+          "angular-sanitize.min.js.map",
+          "angular-scenario.js",
+          "angular-touch.js",
+          "angular-touch.min.js",
+          "angular-touch.min.js.map",
+          "angular.js",
+          "angular.min.js",
+          "angular.min.js.map",
+          "i18n/angular-locale_en-us.js",
+          "i18n/angular-locale_en-us.min.js",
+          "i18n/angular-locale_it-it.js",
+          "i18n/angular-locale_it-it.min.js"
+        ]
+      },
+      "twitter-bootstrap": {
+        "version": "3.3.5",
+        "files": [
+          "css/bootstrap-theme.css",
+          "css/bootstrap-theme.css.map",
+          "css/bootstrap-theme.min.css",
+          "css/bootstrap.css",
+          "css/bootstrap.css.map",
+          "css/bootstrap.min.css",
+          "fonts/glyphicons-halflings-regular.eot",
+          "fonts/glyphicons-halflings-regular.svg",
+          "fonts/glyphicons-halflings-regular.ttf",
+          "fonts/glyphicons-halflings-regular.woff",
+          "fonts/glyphicons-halflings-regular.woff2",
+          "js/bootstrap.js",
+          "js/bootstrap.min.js",
+          "js/npm.js"
+        ]
+      },
+      "jquery": {
+        "version": "2.2.3",
+        "files": [
+          "jquery.js",
+          "jquery.min.js",
+          "jquery.min.map",
+          "jquery.slim.js",
+          "jquery.slim.min.js",
+          "jquery.slim.min.map"
+        ]
+      },
+      "bootstrap-switch": {
+        "version": "3.3.2",
+        "files": [
+          "css/bootstrap2/bootstrap-switch.css",
+          "css/bootstrap2/bootstrap-switch.min.css",
+          "css/bootstrap3/bootstrap-switch.css",
+          "css/bootstrap3/bootstrap-switch.min.css",
+          "js/bootstrap-switch.js",
+          "js/bootstrap-switch.min.js"
+        ]
+      }
+    }
+  }
+}

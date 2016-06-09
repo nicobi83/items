@@ -1,0 +1,27 @@
+{
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+	"id" : "id_mario",
+	"name": "prr",
+	"description" : "prova update",
+	"content": "prova",
+	"values": {
+		"test": "campo1",
+		"todo": "campo_124"
+=======
+	"id" : "123",
+	"name": "prova",
+	"description" : "--(a new item with a map)--",
+=======
+	"id" : "100",
+	"name": "item with map",
+	"description" : "a new item with a map",
+>>>>>>> 902f7bcc8287e0353d6729a0e9d22e94ac2c4dc9
+	"content": "could be base64",
+	"values": {
+		"test": "prova",
+		"todo": "prova_2"
+>>>>>>> a446f5cd339c9107edfaf9d3e3f63331ca340a44
+	}
+}
