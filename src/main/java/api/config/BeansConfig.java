@@ -1,10 +1,7 @@
 package api.config;
 
 import api.model.Items;
-import api.service.IndirizzoService;
-import api.service.ItemsApi;
-import api.service.ItemsServiceWithRepository;
-import api.service.PersonaService;
+import api.service.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -84,5 +81,8 @@ public class BeansConfig {
     public PersonaService personaService(){
         return new PersonaService();
     }
+
+    @Bean
+    public MacchineService macchineService() { return new MacchineService(); }
 
 }

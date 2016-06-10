@@ -82,10 +82,8 @@ public class ItemsServiceIT {
             item.getValues().put(RandomStringUtils.random(4), RandomStringUtils.random(25, true, true));
         }
         assertThat(item).isNotIn(items.getItems());
-        logger.info("non c'è l'oggetto ", assertThat(item).isNotIn(items.getItems()) );
         service.add(item);
         assertThat(item).isIn(items.getItems());
-        logger.info("c'è l'oggetto ", assertThat(item).isNotIn(items.getItems()) );
     }
 
     //@Test

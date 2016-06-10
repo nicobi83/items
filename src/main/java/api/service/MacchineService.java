@@ -1,6 +1,7 @@
 package api.service;
 
-import api.model.Macchina;
+import api.model.Macchine;
+import api.model.Macchine.Macchina;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
@@ -23,7 +24,7 @@ import java.util.*;
  */
 
 
-public class MacchineService implements Crud<Macchina> {
+public class MacchineService implements Crud<Macchine.Macchina> {
 
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -33,14 +34,16 @@ public class MacchineService implements Crud<Macchina> {
     ObjectMapper mapper;
     @Inject
     ConcurrentTaskScheduler taskScheduler;
+    @Inject
+    Macchine macchine;
 
-    Set<Macchina> macchine = new HashSet<>();
+    Macchine.Macchina macchina = new Macchine.Macchina();
+    Macchine.Macchina macchina_test = new Macchine.Macchina();
 
-    Macchina macchina = new Macchina();
-    Macchina macchina_test = new Macchina();
+
     String path = "C:\\Users\\NICOLA\\prova.txt";
     Path filepath = Paths.get(path);
-    java.io.File file = new java.io.File(path);
+    File file = new File(path);
 
 
     @Value("${api.items.file}")
@@ -50,14 +53,15 @@ public class MacchineService implements Crud<Macchina> {
 
 
     @Override
-    public Macchina add(Macchina item) {
+    public Macchine.Macchina add(Macchine.Macchina item) {
 
-        macchine.add(item);
-        Date d = DateTime.now().toDate();
-        item.setModifiedDate(d);
-        item.setCreationDate(d);
+        this.macchine.getMacchine().add(item);
+        //Date d = DateTime.now().toDate();
+        //item.setModifiedDate(d);
+        //item.setCreationDate(d);
         //this.save();
         return item;
+
     }
 
 
@@ -66,33 +70,32 @@ public class MacchineService implements Crud<Macchina> {
 
     }
 
-
     @Override
-    public void delete(Macchina item) {
+    public void delete(Macchine.Macchina item) {
 
     }
 
 
     @Override
-    public Macchina getById(String id) {
+    public Macchine.Macchina getById(String id) {
         return null;
     }
 
 
     @Override
-    public void update(String id, Macchina update) {
+    public void update(String id, Macchine.Macchina update) {
 
     }
 
 
     @Override
-    public void update(Macchina previous, Macchina update) {
+    public void update(Macchine.Macchina previous, Macchine.Macchina update) {
 
     }
 
 
     @Override
-    public List<Macchina> findItems(Map<String, String> mapItem) {
+    public List<Macchine.Macchina> findItems(Map<String, String> mapItem) {
         return null;
     }
 
@@ -168,10 +171,4 @@ public class MacchineService implements Crud<Macchina> {
         }
     }
 
-
-    public void printMacchine() {
-        do {
-            logger.info("auto: ", macchina, macchina_test);
-        } while (macchina != null && macchina_test != null);
-    }
 }

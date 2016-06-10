@@ -23,8 +23,8 @@ public class MacchinaTest {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    Macchina macchina = new Macchina();
-    Macchina macchina_test = new Macchina();
+    Macchine.Macchina macchina = new Macchine.Macchina();
+    Macchine.Macchina macchina_test = new Macchine.Macchina();
     String path = "C:\\Users\\NICOLA\\prova.txt";
     Path filepath = Paths.get(path);
     java.io.File file = new java.io.File(path);
@@ -34,11 +34,11 @@ public class MacchinaTest {
 
         macchina.setColor("navy");
         macchina.setTipo(TipiMacchina.BERLINA);
-        macchina.setName("opel");
+        macchina.setProduttore("opel");
 
         macchina_test.setColor("white");
         macchina_test.setTipo(TipiMacchina.SUV);
-        macchina_test.setName("chrysler");
+        macchina_test.setProduttore("chrysler");
 
     }
 
@@ -57,7 +57,7 @@ public class MacchinaTest {
         macchina.setColor(macchina_test.getColor());
         macchina.setTipo(TipiMacchina.SUV);
         //macchina.setId(macchina_test.getId());
-        macchina.setName(macchina_test.getName());
+        macchina.setProduttore(macchina_test.getProduttore());
         macchina.setColor( macchina_test.getColor() );
         macchina.setTipo( macchina_test.tipoMacchina );
         boolean should_be_same = macchina.equals(macchina_test);
@@ -123,12 +123,5 @@ public class MacchinaTest {
         }
     }
 
-    @Test
-    public void printMacchine()
-    {
-        do{
-            logger.info("auto: ", macchina, macchina_test);
-        }while ( macchina!=null && macchina_test!=null );
-    }
 
 }

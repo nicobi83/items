@@ -1,19 +1,21 @@
 package api.service;
 
 import api.model.Items;
-import api.model.Macchina;
+import api.model.Macchine;
+import api.model.Macchine.Macchina;
 import api.model.TipiMacchina;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import java.io.IOException;
+import java.io.*;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -30,28 +32,25 @@ public class MacchineServiceIT {
     @Inject
     MacchineService service;
     @Inject
-    Macchina macchine;
+    Macchine macchine;
 
-    /*@Before
+    @Before
     public void setUp() throws Exception {
         for (int i = 1; i <= 4; i++) {
             Macchina macchina = new Macchina();
-            macchina.setId("1");
-            macchina.setName(String.format("macchina-%s", i));
             macchina.setTarga("BB42" + i + "SL");
             macchina.setColor("white");
             macchina.setTipo(TipiMacchina.BERLINA);
-            service.add(macchina);
+            macchine.getMacchine().add(macchina);
             logger.debug("Added car: " + macchina.toString());
         }
-    }*/
+    }
 
     @Test
     public void add() throws Exception {
-        Macchina macchina = new Macchina();
-        //macchina.setId("1");
+        Macchine.Macchina macchina = new Macchine.Macchina();
         macchina.setTarga("BB424SL");
-        macchina.setName("Seat");
+        macchina.setProduttore("Seat");
         assertThat(macchina).isNotIn(macchine);
         service.add(macchina);
         assertThat(macchina).isIn(macchine);
@@ -93,4 +92,33 @@ public class MacchineServiceIT {
     }
 
 
+    @Test
+    public void extractFromPdf() throws Exception {
+
+        PDDocument pd = new PDDocument();
+        PDDocument container;
+        PDFTextStripper stripper = new PDFTextStripper();
+
+        try {
+            File input = new File("C:\\Users\\NICOLA\\items.api\\prova.pdf");
+            File output = new File("C:\\Users\\NICOLA\\items.api\\SampleText.txt");
+            container = pd.load(input);
+            System.out.println(container.getNumberOfPages());
+            System.out.println(container.isEncrypted());
+            pd.save("copyOfprova.pdf");
+            stripper.setStartPage(1);
+            stripper.setEndPage(1);
+            BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(output)));
+            stripper.writeText(container, wr);
+            if (pd != null) {
+                pd.close();
+            }
+            wr.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
