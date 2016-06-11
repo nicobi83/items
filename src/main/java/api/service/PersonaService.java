@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.rmi.NotBoundException;
 import java.util.HashSet;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Giovanni on 19/05/2016.
  */
+@Named
 public class PersonaService implements Crud<Persona> {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());

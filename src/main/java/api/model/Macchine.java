@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Created by Thomas on 06/05/2016.
  */
-public class Macchine extends Items.Item {
+public class Macchine{
 
     public static class Macchina {
 
