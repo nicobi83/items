@@ -1,5 +1,6 @@
 package api.service;
 
+import api.Application;
 import api.model.Items;
 import api.model.Macchine;
 import api.model.Macchine.Macchina;
@@ -11,6 +12,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,20 +21,28 @@ import java.io.*;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by NICOLA on 06/06/2016.
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(
+        classes ={
+                Application.class
+        }
+)
+@DirtiesContext
 public class MacchineServiceIT {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
     MacchineService service;
-    @Inject
-    Macchine macchine;
 
     @Before
     public void setUp() throws Exception {
@@ -41,7 +51,7 @@ public class MacchineServiceIT {
             macchina.setTarga("BB42" + i + "SL");
             macchina.setColor("white");
             macchina.setTipo(TipiMacchina.BERLINA);
-            macchine.getMacchine().add(macchina);
+            service.macchine.getMacchine().add(macchina);
             logger.debug("Added car: " + macchina.toString());
         }
     }
@@ -51,9 +61,9 @@ public class MacchineServiceIT {
         Macchine.Macchina macchina = new Macchine.Macchina();
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
-        assertThat(macchina).isNotIn(macchine);
+        assertThat(macchina).isNotIn(service.macchine);
         service.add(macchina);
-        assertThat(macchina).isIn(macchine);
+        assertThat(macchina).isIn(service.macchine);
     }
 
     @Test

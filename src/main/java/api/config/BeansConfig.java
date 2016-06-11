@@ -82,7 +82,4 @@ public class BeansConfig {
         return new PersonaService();
     }
 
-    @Bean
-    public MacchineService macchineService() { return new MacchineService(); }
-
 }

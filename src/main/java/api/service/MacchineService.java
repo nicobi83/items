@@ -23,19 +23,15 @@ import java.util.*;
  * Created by NICOLA on 06/06/2016.
  */
 
-
+@Named
 public class MacchineService implements Crud<Macchine.Macchina> {
-
-
     Logger logger = LoggerFactory.getLogger(this.getClass());
-
 
     @Inject
     ObjectMapper mapper;
     @Inject
     ConcurrentTaskScheduler taskScheduler;
-    @Inject
-    Macchine macchine;
+    Macchine macchine = new Macchine();
 
     Macchine.Macchina macchina = new Macchine.Macchina();
     Macchine.Macchina macchina_test = new Macchine.Macchina();

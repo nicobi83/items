@@ -1,46 +1,64 @@
 package api.model;
 
-import org.joda.time.DateTime;
-
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * Created by Thomas on 06/05/2016.
  */
 public class Macchine extends Items.Item {
 
-    public static class Macchina{
+    public static class Macchina {
 
         String color;
-        public String getColor() { return color; }
-        public void setColor(String color) { this.color = color; }
+
+        public String getColor() {
+            return color;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
 
         String targa;
+
         public String getTarga() {
             return targa;
         }
+
         public void setTarga(String targa) {
             this.targa = targa;
         }
 
         TipiMacchina tipoMacchina;
+
         public TipiMacchina getTipo() {
             return tipoMacchina;
         }
+
         public void setTipo(TipiMacchina tipoMacchina) {
             this.tipoMacchina = tipoMacchina;
         }
 
         String produttore;
-        public String getProduttore() { return produttore; }
-        public void setProduttore(String produttore) { this.produttore = produttore; }
+
+        public String getProduttore() {
+            return produttore;
+        }
+
+        public void setProduttore(String produttore) {
+            this.produttore = produttore;
+        }
 
         String modello;
-        public String getModello() { return modello; }
-        public void setModello(String modello) { this.modello = modello; }
+
+        public String getModello() {
+            return modello;
+        }
+
+        public void setModello(String modello) {
+            this.modello = modello;
+        }
 
     }
 
@@ -84,7 +102,7 @@ public class Macchine extends Items.Item {
 
     @Override
     public boolean equals(Object o) {
-        if(o != null) {
+        if (o != null) {
             return o.hashCode() == this.hashCode();
         }
         return false;
