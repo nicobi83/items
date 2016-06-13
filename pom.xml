@@ -49,11 +49,13 @@
 
         <jdbi.version>2.71</jdbi.version>
     </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.3.3.RELEASE</version>
     </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.liquibase</groupId>

@@ -23,6 +23,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,10 +33,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(
-        classes ={
+        classes = {
                 Application.class
         }
+
 )
+
 @DirtiesContext
 public class MacchineServiceIT {
 
@@ -62,7 +65,7 @@ public class MacchineServiceIT {
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         assertThat(macchina).isNotIn(service.macchine);
-        service.add(macchina);
+        service.macchine.getMacchine().add(macchina);
         assertThat(macchina).isIn(service.macchine);
     }
 
