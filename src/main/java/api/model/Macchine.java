@@ -11,51 +11,41 @@ public class Macchine{
     public static class Macchina {
 
         String color;
-
         public String getColor() {
             return color;
         }
-
         public void setColor(String color) {
             this.color = color;
         }
 
         String targa;
-
         public String getTarga() {
             return targa;
         }
-
         public void setTarga(String targa) {
             this.targa = targa;
         }
 
         TipiMacchina tipoMacchina;
-
         public TipiMacchina getTipo() {
             return tipoMacchina;
         }
-
         public void setTipo(TipiMacchina tipoMacchina) {
             this.tipoMacchina = tipoMacchina;
         }
 
         String produttore;
-
         public String getProduttore() {
             return produttore;
         }
-
         public void setProduttore(String produttore) {
             this.produttore = produttore;
         }
 
         String modello;
-
         public String getModello() {
             return modello;
         }
-
         public void setModello(String modello) {
             this.modello = modello;
         }
@@ -65,11 +55,9 @@ public class Macchine{
     public Set<Macchina> getMacchine() {
         return macchine;
     }
-
     public void setMacchine(Set<Macchina> macchine) {
         this.macchine = macchine;
     }
-
     Set<Macchina> macchine = new HashSet<>();
 
 
