@@ -28,7 +28,7 @@ public interface AccountDao{
     Set<Account> getAccounts(@Bind("persona") Integer id);
 
     @SqlUpdate("INSERT INTO account (id, persona, valore, tipo)" +
-      " VALUES (:i.id, :persona, :i.valore, :i.tipo)")
+            " VALUES (:i.id, :persona, :i.valore, :i.tipo)")
     int insert(@BindBean("i") Account account, @Bind("persona") Integer id);
 
     @SqlUpdate("UPDATE account " +

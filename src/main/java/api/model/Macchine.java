@@ -10,6 +10,9 @@ public class Macchine{
 
     public static class Macchina {
 
+        int id;
+        public int getId() { return id; }
+
         String color;
         public String getColor() {
             return color;
