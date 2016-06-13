@@ -10,8 +10,10 @@ public class Macchine{
 
     public static class Macchina {
 
+
         int id;
         public int getId() { return id; }
+        public void setId(int id) { this.id = id; }
 
         String color;
         public String getColor() {

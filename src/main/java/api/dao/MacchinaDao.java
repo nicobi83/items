@@ -20,11 +20,16 @@ public interface MacchinaDao {
     int insert(@BindBean("i") Macchine.Macchina macchina, @Bind("targa") Integer id);
 
     @SqlUpdate("UPDATE macchine " +
-            " SET persona = :persona," +
-            " valore = :i.valore, " +
-            " tipo = :i.tipo " +
+            " SET produttore = :i.produttore," +
+            " modello = :i.valore, " +
+            " categoria = :i.categoria " +
+            " targa = :i.targa " +
+            " cilindrata = :i.cilindrata " +
+            " potenza = :i.potenza " +
+            " potenza = :i.potenza_fiscale " +
+            " colore = :i.colore " +
             " WHERE id = :i.id")
-    int update(@BindBean("i") Account account, @Bind("persona") Integer id);
+    int update(@BindBean("i") Macchine.Macchina macchina, @Bind("targa") Integer id);
 
     @SqlUpdate("DELETE FROM macchine " +
             " WHERE id = :i.id")
