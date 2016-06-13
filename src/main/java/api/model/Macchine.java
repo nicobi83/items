@@ -50,6 +50,21 @@ public class Macchine{
             this.modello = modello;
         }
 
+        String categoria;
+        public String getCategoria() { return categoria; }
+        public void setCategoria(String categoria) { this.categoria = categoria; }
+
+        String cilindrata;
+        public String getCilindrata() { return cilindrata; }
+        public void setCilindrata(String cilindrata) { this.cilindrata = cilindrata; }
+
+        String potenza;
+        public String getPotenza() { return potenza; }
+        public void setPotenza(String potenza) { this.potenza = potenza; }
+
+        String potenza_fiscale;
+        public String getPotenza_fiscale() { return potenza_fiscale; }
+        public void setPotenza_fiscale(String potenza_fiscale) { this.potenza_fiscale = potenza_fiscale; }
     }
 
     public Set<Macchina> getMacchine() {
