@@ -125,9 +125,10 @@ public abstract class MacchinaRepository {
         return this.macchinaDao().update(macchina, id);
     }
 
-    
+    public int delete( Macchine.Macchina macchina, int id ) {
+        return this.macchinaDao().delete(macchina);
+    }
 
 }
 
 
-//pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file

@@ -133,5 +133,5 @@ public class MacchineServiceIT {
     }
 }
 
-
+//pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file
 
