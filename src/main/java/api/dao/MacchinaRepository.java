@@ -1,6 +1,7 @@
 package api.dao;
 
 import api.dao.mapper.MacchinaResultSetMapper;
+import api.model.Items;
 import api.model.Macchine;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -115,15 +116,18 @@ public abstract class MacchinaRepository {
         return macchina;
     }
 
-    //pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file
-    private String toJson(Object obj) {
-        String serializedObject = null;
-        try {
-            serializedObject = mapper.writeValueAsString(obj);
-        } catch (JsonProcessingException e) {
-            logger.debug(e.getLocalizedMessage());
-        }
-        return serializedObject;
+    public int insert(Macchine.Macchina macchina, int id) {
+        return this.macchinaDao().insert(macchina, id);
     }
 
+
+    public int update(Macchine.Macchina macchina, int id) {
+        return this.macchinaDao().update(macchina, id);
+    }
+
+    
+
 }
+
+
+//pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file
