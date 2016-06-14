@@ -1,11 +1,10 @@
 package api.service;
 
 import api.Application;
-import api.model.Items;
-import api.model.Macchine;
 import api.model.Macchine.Macchina;
 import api.model.TipiMacchina;
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
@@ -15,16 +14,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
 import java.io.*;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -61,7 +56,7 @@ public class MacchineServiceIT {
 
     @Test
     public void add() throws Exception {
-        Macchine.Macchina macchina = new Macchine.Macchina();
+        Macchina macchina = new Macchina();
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         assertThat(macchina).isNotIn(service.macchine);

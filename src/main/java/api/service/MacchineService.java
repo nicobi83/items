@@ -1,11 +1,9 @@
 package api.service;
 
 import api.model.Macchine;
-import api.model.Macchine.Macchina;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +15,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by NICOLA on 06/06/2016.
@@ -29,8 +28,8 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
     @Inject
     ObjectMapper mapper;
-    @Inject
-    ConcurrentTaskScheduler taskScheduler;
+
+
     Macchine macchine = new Macchine();
 
     Macchine.Macchina macchina = new Macchine.Macchina();
