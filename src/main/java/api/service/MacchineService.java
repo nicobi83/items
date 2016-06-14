@@ -28,9 +28,7 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
     @Inject
     ObjectMapper mapper;
-
-
-
+    
 
     Macchine macchine = new Macchine();
 
