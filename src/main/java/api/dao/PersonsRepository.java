@@ -1,4 +1,4 @@
-package api.dao.mapper;
+package api.dao;
 
 import api.dao.*;
 import api.dao.PersonaDao;

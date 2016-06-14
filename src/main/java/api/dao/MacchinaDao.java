@@ -46,7 +46,7 @@ public interface MacchinaDao {
     Set<Macchine.Macchina> getMacchinas(@Bind("targa") Integer id);
 
     @SqlQuery("SELECT * FROM macchine WHERE id = :id")
-    Macchine.Macchina getMacchina(@Bind("id") String id);
+    Macchine.Macchina getMacchina(@Bind("id") Integer id);
 
 
 }

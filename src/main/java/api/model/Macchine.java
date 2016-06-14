@@ -1,6 +1,8 @@
 package api.model;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -70,6 +72,16 @@ public class Macchine{
         String potenza_fiscale;
         public String getPotenza_fiscale() { return potenza_fiscale; }
         public void setPotenza_fiscale(String potenza_fiscale) { this.potenza_fiscale = potenza_fiscale; }
+
+        String sValues;
+        public String getsValues() { return sValues; }
+        public void setsValues(String sValues) { this.sValues = sValues;  }
+
+        Map<String, Object> values = new HashMap<>();
+        public void setValues(Map<String, Object> values) {
+            this.values = values;
+        }
+
     }
 
     public Set<Macchina> getMacchine() {
@@ -79,6 +91,10 @@ public class Macchine{
         this.macchine = macchine;
     }
     Set<Macchina> macchine = new HashSet<>();
+
+
+
+
 
 
 
