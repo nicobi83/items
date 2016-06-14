@@ -72,7 +72,15 @@ public class BeansConfig {
     }
     //SE MODIFICO IL RETURN CAMBIO IL TIPO DI SERVICE, QUI UTILIZZO SCRITTURA SU DB, CON ITEMSSERVICE USO SCRITTURA SU FILE
 
-    
+    @Bean
+    public IndirizzoService indirizzoService(){
+        return new IndirizzoService();
+    }
+
+    @Bean
+    public MacchineService macchineService(){
+        return new MacchineService();
+    }
 
 
 }
