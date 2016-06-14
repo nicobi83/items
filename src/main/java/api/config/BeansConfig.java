@@ -77,10 +77,6 @@ public class BeansConfig {
         return new IndirizzoService();
     }
 
-    @Bean
-    public MacchineService macchineService(){
-        return new MacchineService();
-    }
 
 
 }
