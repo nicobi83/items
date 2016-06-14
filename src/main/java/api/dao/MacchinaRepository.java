@@ -2,6 +2,7 @@ package api.dao;
 
 import api.dao.mapper.MacchinaResultSetMapper;
 import api.model.Macchine;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
@@ -101,7 +102,7 @@ public abstract class MacchinaRepository {
         if (macchina != null) {
             //String values = this.itemDao().getValues(id);
             Map<String, Object> m = null;
-            if (!org.apache.commons.lang.StringUtils.isBlank( macchina.getsValues() )){
+            if ( !org.apache.commons.lang.StringUtils.isBlank(macchina.getsValues()) ){
                 try {
                     m = mapper.readValue(macchina.getsValues(), new TypeReference<Map<String, Object>>() {
                     });
@@ -114,5 +115,15 @@ public abstract class MacchinaRepository {
         return macchina;
     }
 
+    //pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file
+    private String toJson(Object obj) {
+        String serializedObject = null;
+        try {
+            serializedObject = mapper.writeValueAsString(obj);
+        } catch (JsonProcessingException e) {
+            logger.debug(e.getLocalizedMessage());
+        }
+        return serializedObject;
+    }
 
 }
