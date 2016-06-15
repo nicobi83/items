@@ -91,6 +91,16 @@ public class MacchineService implements Crud<Macchine.Macchina> {
     @Override
     public void update(Macchine.Macchina previous, Macchine.Macchina update) {
 
+        if( this.macchine.contains(previous) )
+        {
+            if( !previous.equals(update) )
+            {
+                update.setId(previous.getId());
+            }
+            this.macchine.remove(previous);
+            this.macchine.add(update);
+        }
+
     }
 
 

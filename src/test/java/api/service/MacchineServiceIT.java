@@ -79,8 +79,10 @@ public class MacchineServiceIT {
         Macchina macchina = new Macchina();
         service.add(macchina);
         assertThat(macchina).isIn(service.macchine);
+        logger.info("auto presente");
         service.delete(macchina);
         assertThat(macchina).isNotIn(service.macchine);
+        logger.info("auto rimossa");
 
     }
 
