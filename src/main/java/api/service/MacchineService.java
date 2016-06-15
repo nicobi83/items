@@ -15,8 +15,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by NICOLA on 06/06/2016.
@@ -24,13 +26,13 @@ import java.util.Map;
 
 @Named
 public class MacchineService implements Crud<Macchine.Macchina> {
+
     Logger logger = LoggerFactory.getLogger(this.getClass());
+    Set<Macchine.Macchina> macchine = new HashSet<>();
 
     @Inject
     ObjectMapper mapper;
 
-
-    Macchine macchine = new Macchine();
 
     Macchine.Macchina macchina = new Macchine.Macchina();
     Macchine.Macchina macchina_test = new Macchine.Macchina();
@@ -50,7 +52,7 @@ public class MacchineService implements Crud<Macchine.Macchina> {
     @Override
     public Macchine.Macchina add(Macchine.Macchina item) {
 
-        this.macchine.getMacchine().add(item);
+        this.macchine.add(item);
         //Date d = DateTime.now().toDate();
         //item.setModifiedDate(d);
         //item.setCreationDate(d);

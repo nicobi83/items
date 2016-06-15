@@ -10,6 +10,10 @@ import java.util.Set;
  */
 public class Macchine{
 
+
+
+
+
     public static class Macchina {
 
 
@@ -83,27 +87,6 @@ public class Macchine{
         }
 
     }
-
-    public Set<Macchina> getMacchine() {
-        return macchine;
-    }
-    public void setMacchine(Set<Macchina> macchine) {
-        this.macchine = macchine;
-    }
-    Set<Macchina> macchine = new HashSet<>();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    /* Date creationDate;

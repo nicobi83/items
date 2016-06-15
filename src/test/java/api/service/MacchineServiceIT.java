@@ -1,6 +1,7 @@
 package api.service;
 
 import api.Application;
+import api.model.Macchine;
 import api.model.Macchine.Macchina;
 import api.model.TipiMacchina;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -40,17 +41,18 @@ public class MacchineServiceIT {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
-    MacchineService service;
+    MacchineService servizio;
+
 
     @Before
     public void setUp() throws Exception {
         for (int i = 1; i <= 4; i++) {
-            Macchina macchina = new Macchina();
+            Macchine.Macchina macchina = new Macchine.Macchina();
             macchina.setTarga("BB42" + i + "SL");
             macchina.setColor("white");
             macchina.setTipo(TipiMacchina.BERLINA);
-            service.macchine.getMacchine().add(macchina);
-            logger.debug("Added car: " + macchina.toString());
+            servizio.macchine.add(macchina);
+            logger.info("AMacchina presente");
         }
     }
 
@@ -59,9 +61,12 @@ public class MacchineServiceIT {
         Macchina macchina = new Macchina();
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
-        assertThat(macchina).isNotIn(service.macchine);
-        service.macchine.getMacchine().add(macchina);
-        assertThat(macchina).isIn(service.macchine);
+        macchina.setModello("Leon");
+        assertThat(macchina).isNotIn(servizio.macchine);
+        logger.info("Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " non presente");
+        servizio.macchine.add(macchina);
+        assertThat(macchina).isIn(servizio.macchine);
+        logger.info("Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " inserita");
     }
 
     @Test
