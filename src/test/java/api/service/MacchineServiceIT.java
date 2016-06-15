@@ -10,6 +10,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.text.PDFTextStripper;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
 import java.io.*;
+import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,7 +43,7 @@ public class MacchineServiceIT {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Inject
-    MacchineService servizio;
+    MacchineService service;
 
 
     @Before
@@ -51,22 +53,35 @@ public class MacchineServiceIT {
             macchina.setTarga("BB42" + i + "SL");
             macchina.setColor("white");
             macchina.setTipo(TipiMacchina.BERLINA);
-            servizio.macchine.add(macchina);
-            logger.info("AMacchina presente");
+            service.macchine.add(macchina);
+            logger.info("Macchina presente");
         }
     }
 
     @Test
     public void add() throws Exception {
         Macchina macchina = new Macchina();
+        Date utilDate = DateTime.now().toDate();
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         macchina.setModello("Leon");
-        assertThat(macchina).isNotIn(servizio.macchine);
-        logger.info("Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " non presente");
-        servizio.macchine.add(macchina);
-        assertThat(macchina).isIn(servizio.macchine);
-        logger.info("Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " inserita");
+        macchina.setCreationDate(utilDate);
+        assertThat(macchina).isNotIn(service.macchine);
+        logger.info( "Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " non presente" );
+        service.macchine.add(macchina);
+        assertThat(macchina).isIn(service.macchine);
+        logger.info( "Autovettura " + macchina.getProduttore() + " " + macchina.getModello() + " inserita il " + macchina.getCreationDate() );
+    }
+
+    @Test
+    public void delete() throws Exception {
+
+        Macchina macchina = new Macchina();
+        service.add(macchina);
+        assertThat(macchina).isIn(service.macchine);
+        service.delete(macchina);
+        assertThat(macchina).isNotIn(service.macchine);
+
     }
 
     @Test

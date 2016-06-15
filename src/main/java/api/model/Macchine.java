@@ -1,9 +1,6 @@
 package api.model;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Thomas on 06/05/2016.
@@ -81,21 +78,28 @@ public class Macchine{
         public String getsValues() { return sValues; }
         public void setsValues(String sValues) { this.sValues = sValues;  }
 
+        Date creationDate;
+        public Date getCreationDate() { return creationDate; }
+        public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
+
+        Date modifiedDate;
+        public Date getModifiedDate() { return modifiedDate; }
+        public void setModifiedDate(Date modifiedDate) { this.modifiedDate = modifiedDate; }
+
         Map<String, Object> values = new HashMap<>();
         public void setValues(Map<String, Object> values) {
             this.values = values;
+
+
+
+
+
         }
 
     }
 
 
-   /* Date creationDate;
-    public Date getCreationDate() { return creationDate; }
-    public void setCreationDate(Date creationDate) { this.creationDate = creationDate; } */
 
-  /*  Date modifiedDate;
-    public Date getModifiedDate() { return modifiedDate; }
-    public void setModifiedDate(Date modifiedDate) { this.modifiedDate = modifiedDate; } */
 
 
 

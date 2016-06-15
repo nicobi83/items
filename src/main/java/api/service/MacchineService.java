@@ -4,6 +4,7 @@ import api.model.Macchine;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,10 +16,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by NICOLA on 06/06/2016.
@@ -53,9 +51,9 @@ public class MacchineService implements Crud<Macchine.Macchina> {
     public Macchine.Macchina add(Macchine.Macchina item) {
 
         this.macchine.add(item);
-        //Date d = DateTime.now().toDate();
-        //item.setModifiedDate(d);
-        //item.setCreationDate(d);
+        Date d = DateTime.now().toDate();
+        item.setModifiedDate(d);
+        item.setCreationDate(d);
         //this.save();
         return item;
 
@@ -69,6 +67,11 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
     @Override
     public void delete(Macchine.Macchina item) {
+
+        if( this.macchine.contains(item) )
+        {
+            this.macchine.remove(item);
+        }
 
     }
 
