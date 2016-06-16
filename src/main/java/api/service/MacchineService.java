@@ -2,6 +2,7 @@ package api.service;
 
 import api.exception.IdNotSpecifiedException;
 import api.exception.NotFoundException;
+import api.model.Indirizzo;
 import api.model.Macchine;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -106,7 +107,8 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
     @Override
     public void update(String id, Macchine.Macchina update) {
-
+        Macchine.Macchina previous = this.getById(id);
+        this.update(previous, update);
     }
 
 

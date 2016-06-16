@@ -140,6 +140,27 @@ public class MacchineServiceIT {
         logger.info("L'auto aggiornata è nel SET? " + service.macchine.contains(newcar) );
     }
 
+    @Test
+    public void updateById() throws Exception {
+
+        Macchina previous = new Macchina();
+        Macchina newcar = new Macchina();
+        previous.setId("1");
+        previous.setTarga("BB424SL");
+        previous.setProduttore("Seat");
+        previous.setModello("Leon");
+        newcar.setId("1");
+        newcar.setTarga("BC325TT");
+        newcar.setProduttore("Ford");
+        newcar.setModello("Focus");
+        service.add(previous);
+        assertThat(previous).isIn(service.macchine);
+        logger.info("L'auto è nel SET? " + service.macchine.contains(previous) );
+        service.update(previous.getId(), newcar);
+        assertThat(newcar).isIn(service.macchine);
+        logger.info("L'auto aggiornata è nel SET? " + service.macchine.contains(newcar) );
+    }
+
 
     @Test
     public void createPdfFile() throws IOException {
