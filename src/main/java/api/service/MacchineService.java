@@ -75,6 +75,7 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
         Macchine.Macchina item = this.getById(id);
         this.delete(item);
+
     }
 
     @Override

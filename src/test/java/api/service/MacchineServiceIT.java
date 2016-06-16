@@ -116,7 +116,7 @@ public class MacchineServiceIT {
         service.delete(macchina.getId());
         assertThat(macchina).isNotIn(service.macchine);
         logger.info( "L'auto è nel SET? " + service.macchine.contains(macchina) );
-        
+
     }
 
     @Test
