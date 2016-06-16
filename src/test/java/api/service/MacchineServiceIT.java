@@ -86,19 +86,32 @@ public class MacchineServiceIT {
         macchina.setCreationDate(utilDate);
         service.add(macchina);
         assertThat(macchina).isIn(service.macchine);
-        logger.info("Targa del veicolo inserito: " + macchina.getTarga());
-        logger.info("auto presente");
+        logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
         service.delete(macchina);
         assertThat(macchina).isNotIn(service.macchine);
-        logger.info("targa veicolo Seat Leon: " + macchina.getTarga() + " IL VEICOLO E' STATO RIMOSSO!");
+        logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
 
     }
 
     @Test
     public void update() throws Exception {
 
-
-
+        Macchina previous = new Macchina();
+        Macchina newcar = new Macchina();
+        previous.setId(1);
+        previous.setTarga("BB424SL");
+        previous.setProduttore("Seat");
+        previous.setModello("Leon");
+        newcar.setId(1);
+        newcar.setTarga("BC325TT");
+        newcar.setProduttore("Ford");
+        newcar.setModello("Focus");
+        service.add(previous);
+        assertThat(previous).isIn(service.macchine);
+        logger.info("L'auto è nel SET? " + service.macchine.contains(previous) );
+        service.update(previous, newcar);
+        assertThat(newcar).isIn(service.macchine);
+        logger.info("L'auto aggiornata è nel SET? " + service.macchine.contains(newcar) );
     }
 
 
@@ -167,4 +180,11 @@ public class MacchineServiceIT {
 }
 
 //pensare ad un metodo che inserisca elemento del database in un PDF in alternativa a JSON file
+
+/*
+for( Macchina k : service.macchine  )
+        {
+            logger.info("Targa del veicolo inserito: " + service.getMacchine().contains(macchina), service.macchine);
+            logger.info("auto presente");
+        }*/
 

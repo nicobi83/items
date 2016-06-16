@@ -26,7 +26,16 @@ import java.util.*;
 public class MacchineService implements Crud<Macchine.Macchina> {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
+
     Set<Macchine.Macchina> macchine = new HashSet<>();
+    public Set<Macchine.Macchina> getMacchine() {
+        return macchine;
+    }
+    public void setMacchine(Set<Macchine.Macchina> macchine) {
+        this.macchine = macchine;
+    }
+
+
 
     @Inject
     ObjectMapper mapper;
