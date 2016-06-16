@@ -1,5 +1,8 @@
 package api.service;
 
+import api.exception.IdNotSpecifiedException;
+import api.exception.NotFoundException;
+import api.model.Items;
 import api.model.Macchine;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -72,6 +75,8 @@ public class MacchineService implements Crud<Macchine.Macchina> {
     @Override
     public void delete(String id) {
 
+        Macchine.Macchina item = this.getById(id);
+        this.delete(item);
     }
 
     @Override
@@ -87,9 +92,18 @@ public class MacchineService implements Crud<Macchine.Macchina> {
 
     @Override
     public Macchine.Macchina getById(String id) {
-        return null;
+        if (!StringUtils.isBlank(id)) {
+            Optional<Macchine.Macchina> found = this.macchine.stream()
+                    .filter(item -> item.getId() != null)
+                    .filter(item -> item.getId().toLowerCase().equals(id.toLowerCase()))
+                    .findFirst();
+            if (!found.equals(Optional.empty())) {
+                return found.get();
+            }
+            throw new NotFoundException("Item with 'id' == '" + id + "'");
+        }
+        throw new IdNotSpecifiedException("Missing parameter 'id'");
     }
-
 
     @Override
     public void update(String id, Macchine.Macchina update) {

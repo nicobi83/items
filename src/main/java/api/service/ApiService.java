@@ -63,3 +63,8 @@ public class ApiService implements Crud<Paziente> {
     }
 }
 */
+
+
+/*
+* Operatore lambda (-> oppure =>) significa fino a qua; serve per scorrere una list oppure un set fino all'elemento voluto o avente cprecise caratteristiche
+* */

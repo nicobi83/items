@@ -62,7 +62,7 @@ public class MacchineServiceIT {
     public void add() throws Exception {
         Macchina macchina = new Macchina();
         Date utilDate = DateTime.now().toDate();
-        macchina.setId(1);
+        macchina.setId("1");
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         macchina.setModello("Leon");
@@ -79,7 +79,7 @@ public class MacchineServiceIT {
 
         Macchina macchina = new Macchina();
         Date utilDate = DateTime.now().toDate();
-        macchina.setId(1);
+        macchina.setId("1");
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         macchina.setModello("Leon");
@@ -94,15 +94,45 @@ public class MacchineServiceIT {
     }
 
     @Test
+    public void deleteById() throws Exception {
+
+        Macchina macchina = new Macchina();
+        Macchina macchina2 = new Macchina();
+        Date utilDate = DateTime.now().toDate();
+        macchina.setId("1");
+        macchina.setTarga("BB424SL");
+        macchina.setProduttore("Seat");
+        macchina.setModello("Leon");
+        macchina2.setId("2");
+        macchina2.setTarga("BC325TT");
+        macchina2.setProduttore("Ford");
+        macchina2.setModello("Focus");
+        service.add(macchina);
+        service.add(macchina2);
+        assertThat(macchina).isIn(service.macchine);
+        logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
+        assertThat(macchina2).isIn(service.macchine);
+        logger.info("L'auto è nel SET? " + service.macchine.contains(macchina2) );
+        if( macchina.getId() == "1" )
+        {
+            service.delete(macchina.getId());
+            logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
+            assertThat(macchina).isNotIn(service.macchine);
+        }
+
+
+    }
+
+    @Test
     public void update() throws Exception {
 
         Macchina previous = new Macchina();
         Macchina newcar = new Macchina();
-        previous.setId(1);
+        previous.setId("1");
         previous.setTarga("BB424SL");
         previous.setProduttore("Seat");
         previous.setModello("Leon");
-        newcar.setId(1);
+        newcar.setId("1");
         newcar.setTarga("BC325TT");
         newcar.setProduttore("Ford");
         newcar.setModello("Focus");

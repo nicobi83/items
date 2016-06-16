@@ -13,10 +13,9 @@ public class Macchine{
 
     public static class Macchina {
 
-
-        int id;
-        public int getId() { return id; }
-        public void setId(int id) { this.id = id; }
+        String id;
+        public String getId() { return id; }
+        public void setId(String id) { this.id = id; }
 
         String color;
         public String getColor() {
