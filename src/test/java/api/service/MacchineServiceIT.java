@@ -62,6 +62,7 @@ public class MacchineServiceIT {
     public void add() throws Exception {
         Macchina macchina = new Macchina();
         Date utilDate = DateTime.now().toDate();
+        macchina.setId(1);
         macchina.setTarga("BB424SL");
         macchina.setProduttore("Seat");
         macchina.setModello("Leon");
@@ -77,14 +78,29 @@ public class MacchineServiceIT {
     public void delete() throws Exception {
 
         Macchina macchina = new Macchina();
+        Date utilDate = DateTime.now().toDate();
+        macchina.setId(1);
+        macchina.setTarga("BB424SL");
+        macchina.setProduttore("Seat");
+        macchina.setModello("Leon");
+        macchina.setCreationDate(utilDate);
         service.add(macchina);
         assertThat(macchina).isIn(service.macchine);
+        logger.info("Targa del veicolo inserito: " + macchina.getTarga());
         logger.info("auto presente");
         service.delete(macchina);
         assertThat(macchina).isNotIn(service.macchine);
-        logger.info("auto rimossa");
+        logger.info("targa veicolo Seat Leon: " + macchina.getTarga() + " IL VEICOLO E' STATO RIMOSSO!");
 
     }
+
+    @Test
+    public void update() throws Exception {
+
+
+
+    }
+
 
     @Test
     public void createPdfFile() throws IOException {
