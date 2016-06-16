@@ -113,14 +113,10 @@ public class MacchineServiceIT {
         logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
         assertThat(macchina2).isIn(service.macchine);
         logger.info("L'auto è nel SET? " + service.macchine.contains(macchina2) );
-        if( macchina.getId() == "1" )
-        {
-            service.delete(macchina.getId());
-            logger.info("L'auto è nel SET? " + service.macchine.contains(macchina) );
-            assertThat(macchina).isNotIn(service.macchine);
-        }
-
-
+        service.delete(macchina.getId());
+        assertThat(macchina).isNotIn(service.macchine);
+        logger.info( "L'auto è nel SET? " + service.macchine.contains(macchina) );
+        
     }
 
     @Test
