@@ -159,6 +159,7 @@ public class MacchineServiceIT {
         service.update(previous.getId(), newcar);
         assertThat(newcar).isIn(service.macchine);
         logger.info("L'auto aggiornata è nel SET? " + service.macchine.contains(newcar) );
+
     }
 
 
